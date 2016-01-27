@@ -75,3 +75,4 @@ int main()
 		cout << "最后一个没有求和：" << *(ivec.end() - 1) << endl;
 	system("pause");
 }*/
+2222
