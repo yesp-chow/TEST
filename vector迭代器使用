@@ -1,0 +1,77 @@
+#include <iostream>
+#include <vector>
+#include <cctype>
+#include <string>
+using namespace std;
+int main()
+{
+	
+	string abc_tem;
+	vector<string> abc_array;
+	cout << "shuru:" << endl;
+	while (cin >> abc_tem)
+		abc_array.push_back(abc_tem);
+	vector<int>::size_type jishu = 0;
+	for (vector<string>::iterator tem_array = abc_array.begin(); tem_array != abc_array.end(); ++tem_array)   //这个for是使用迭代器对里面的元素进行遍历。。
+	{
+		for (string::size_type index = 0; index != (*tem_array).size(); ++index)  //	这个for是对上面遍历中的单个元素进行判定大小写并转换。	
+			if (islower((*tem_array)[index]))                                     //
+				(*tem_array)[index] = toupper((*tem_array)[index]);               //
+			cout << *tem_array;													  //
+			//cout << static_cast <char> (toupper((*tem_array)[index]))<<" ";	//toupper()返回值是整型，如果不强制转换，就会输入对于的asnii码。
+		++jishu;
+		if (jishu % 8 == 0)
+			cout << endl;
+	}
+	system("pause");
+}
+//int main()
+//{
+//	//用迭代器把每个元素值改为当前值的 2 倍。 
+//	vector<int> array;
+//	int tempint;
+//	cout << "请输入数字以CZ结束：" << endl;
+//	while (cin >> tempint)
+//		array.push_back(tempint);
+//	for (vector<int>::iterator tem = array.begin(); tem != array.end(); ++tem)
+//	{
+//		cout << *(tem)*2 << endl;
+//	}
+//	system("pause");
+//	return 0;
+//}
+
+
+/*int main()
+{
+	/*
+		定义一个整型int，定义一个数组，使用while循环写入；
+		vector<int>::interator sum=0,是迭代器的类型,vector使用vector::size_type作为下标类型；
+		size_t 是bitset类的返回值；
+		begin表示数组第一个元素，end表示数组最后元素的后一个。
+		*/
+/*
+	vector <int> ivec;
+	int ival;
+	cout << "请输入数字以CZ结束：" << endl;
+	while (cin >> ival)
+		ivec.push_back(ival);
+	if (ivec.size() == 0)
+	{
+		cout << "没有输入数字。" << endl;
+		return 0;
+	}
+	cout << "间隔合为：" << endl;
+	vector <int> ::size_type cnt = 0;
+	for (vector <int> ::iterator iter = ivec.begin(); iter < ivec.end() - 1; iter = iter + 2)    //改为小于等于会vs出错。
+	{
+		cout << *iter + *(iter + 1) << "\t";
+		++cnt;
+		if (cnt % 6 == 0)
+			cout << endl;
+	}
+	
+	if (ivec.size() % 2 != 0)
+		cout << "最后一个没有求和：" << *(ivec.end() - 1) << endl;
+	system("pause");
+}*/
